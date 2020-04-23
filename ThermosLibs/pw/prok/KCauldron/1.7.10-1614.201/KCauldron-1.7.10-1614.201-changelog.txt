@@ -1,0 +1,352 @@
+# 1.7.10-1614.201: 8d2ba00
+Cap chunk generation to 1 chunk per tick (configurable)
+
+# 1.7.10-1614.200: 232bc98
+Implement deprecated get/set shooter bukkit's methods
+
+fix #368
+
+# 1.7.10-1614.199: ff7d6f4
+Whoops, chunk coords stored in other order (fix #360)
+
+# 1.7.10-1614.198: 7eba5f9
+Fix crash with indirect damage when indirect entity == null, for example
+thrower is not entity.
+
+Fix #361
+
+# 1.7.10-1614.197: 5aaf6c5
+ChunkManager implementation
+
+ChunkManager optimize chunks handling in small and big worlds
+
+Small worlds gets benefits with using int-object map instead long-object (in area -32768...32767 by x and z)
+
+Large worlds gets benefits by using efficient map by Colt project, which a little (3-6%) slower in writing, but greatly faster
+(400-500% from Java's HashMap and 150-180% from Trove's maps) on reading.
+
+# 1.7.10-1614.196: 0dd6c7e
+Jline's ConsoleReader reads empty string instead of null in stdin-less
+environment, like exec() from many languages. Add empty check.
+
+# 1.7.10-1614.195: 3b24489
+Fix #346
+
+# 1.7.10-1614.194: db3a8c3
+Pass net handler during reverse cloning due to some mods could transmit some packets in cloning
+
+# 1.7.10-1614.193: d09dc71
+Fix #106
+
+# 1.7.10-1614.192: 8427682
+Fix inventory wiping on keepInventory=true
+
+# 1.7.10-1614.191: 0b251c5
+Implement ReverseClonner, which should fix all issues with teleportation/inventories/crashed after respawning
+
+# 1.7.10-1614.190: 313adcf
+Fix PlayerCloneEvent.wasDeath (close #335)
+
+# 1.7.10-1614.189: 30d7378
+Okay, remove full cloning of player during respawn and just post forge's
+event for required mods. Close #331
+
+# 1.7.10-1614.188: 7b03a5c
+Add out-of-box fast leaves decay
+
+# 1.7.10-1614.187: d98e2ca
+Fix ender inventory not synced after cloning, fix #329
+
+# 1.7.10-1614.186: 3b321e3
+Implement custom bukkit's entity for modded projectiles
+
+Fix #150
+
+# 1.7.10-1614.185: 7114a28
+Implement thread-safe, async-like and not buggy BlockUpdatesTracker
+
+close #320
+
+# 1.7.10-1614.184: 01238b8
+Better handling of out of sync
+
+# 1.7.10-1614.183: f9b7fa7
+Fix #319
+
+# 1.7.10-1614.182: 9a1b867
+Avoid to load chunks if block updated scheduled in unloaded chunk
+
+# 1.7.10-1614.181: 0d3b4e7
+Forward bukkit's CraftPlayer during cloning player
+
+Fix #318
+
+# 1.7.10-1614.180: 07698c4
+Fix inventory erase when player respawns by mods or plugins
+
+Close #301
+
+# 1.7.10-1614.179: 12b0a52
+Rewrite NextTickListEntry.hashCode() to implement real hashcode, not incremental ids :)
+
+New function is more stable and gives a good distribution of numbers with less colissions.
+
+Fix #313
+
+# 1.7.10-1614.178: 6c2be10
+Implement Bukkit's inventory for modded inventories, fix #257
+
+# 1.7.10-1614.177: e3bc245
+Rollback to Gradle 2.8 due to bug in ForgeGradle
+
+# 1.7.10-1614.176: 097252b
+Add expermintal feature: tileEnitity list recreation each tick
+
+# 1.7.10-1614.175: 1817b56
+Fix player doesn't cloning after death/teleport, fix #282
+
+# 1.7.10-1614.174: be83aa2
+Fix broken commands.yml (close #276)
+
+# 1.7.10-1614.173: eb49ce8
+Make light asynchronous (close #231)
+
+# 1.7.10-1614.172: 7f897a0
+Allow fake net handlers, fix #268
+
+# 1.7.10-1614.171: 955af15
+Make Server.getOnlinePlayers returns immutable collection, like it said
+in docs. This is also fix crash with /stop and /restart commands while
+any players had been online.
+
+# 1.7.10-1614.170: 90386d0
+Add support for 1558 backport into CI
+
+# 1.7.10-1517.169: f722fcc
+Rollback to the state of .152 build with some critical fixes and updates
+
+# 1.7.10-1517.168: ed0bc9a
+Fix #228
+
+# 1.7.10-1517.167: da06769
+Fix backport merging
+
+# 1.7.10-1517.166: 1ec4cf1
+Remove health scaling
+
+# 1.7.10-1517.165: 1d94d55
+Update forge to 1517
+
+# 1.7.10-1492.164: 30960fd
+Fix #222
+
+# 1.7.10-1492.163: d3c359b
+Fix #218, fix #217
+
+# 1.7.10-1492.162: 4cfa07d
+Fix #214
+
+# 1.7.10-1492.161: ad909f2
+Return empty chunk in case of null and come back indent for ProcessingQueue, sorry! :)
+
+# 1.7.10-1492.160: 6458549
+Fix #211
+
+# 1.7.10-1492.159: 40ac2b7
+Fix #209
+
+# 1.7.10-1492.158: 7defe0b
+Some portion of optimizations:
+* Clear outgoing packet queue after player disconnect
+* Disable sleep between chunk saving
+* Put 2x4096 bytes instead 2048x4 bytes for region file aligment
+* Using map to search player by name instead iterating over all players
+* Some tweaks for decorations (item frames, maps)
+
+# 1.7.10-1492.157: 299cf0e
+Fix broken commands.yml (close #97)
+
+# 1.7.10-1492.156: 0097a07
+Check for active chunks before persistent, could be faster on big maps
+
+# 1.7.10-1492.155: 497d437
+Add list wrapper for tileentities
+
+# 1.7.10-1492.154: 9ba8489
+Use iterator for entities loop
+
+# 1.7.10-1492.153: 4a63dca
+Transparent unloading {,tile}entities from world
+
+# 1.7.10-1492.152: 1488e0f
+Meh, #130
+
+# 1.7.10-1492.151: ac8700f
+Reduce calls of System.currentTimeMillis() in TickLimiter, close #130
+
+# 1.7.10-1492.150: 043978c
+Fix for unschemed urls with using ip:port definition
+
+# 1.7.10-1492.149: 1c88066
+Update to forge 1492
+
+# 1.7.10-1481.148: af42f43
+Allow unschemed URIs in chat (fix #110)
+
+# 1.7.10-1481.147: fbdf884
+Add option to disable printing client's mod list (close #98)
+
+# 1.7.10-1481.146: 664666e
+Fix DragonAPI incompatibility (close #99)
+
+# 1.7.10-1481.145: 63116d6
+Backport for 1488
+
+# 1.7.10-1481.144: 6149fc0
+Generate old-style server stub for bundle
+
+# 1.7.10-1481.143: 896e455
+Fix armor double damage, fix #79
+
+# 1.7.10-1481.142: 499c680
+Make network connections keepalive (close #11)
+
+# 1.7.10-1481.141: 50bc729
+Fixed custom modded inventories not being synced on bukkit side after spawning in world. (fix #75)
+
+# 1.7.10-1481.140: c2c4cc3
+Fix compatibility with jre7 (#73)
+
+# 1.7.10-1481.139: b242db1
+Fight with CI
+
+# 1.7.10-1481.138: bbacdc3
+Update CI config
+
+# 1.7.10-1481.137: 831c873
+Migrate to gitlab ci 7.12
+
+# 1.7.10-1481.136: 495e043
+Fix #70
+
+# 1.7.10-1481.135: 712aab7
+Add option to allow nether portals in non overworld (close #58)
+
+# 1.7.10-1481.134: eedf678
+Update forge to 1481
+
+# 1.7.10-1448.133: 8c50b98
+Finally fix #67
+
+# 1.7.10-1448.132: 9fdf330
+Fix #67
+
+# 1.7.10-1448.132: 9fdf330
+Fix #67
+
+# 1.7.10-1448.131: 102109b
+Fix result in decrStackSize
+
+# 1.7.10-1448.130: f6ba538
+Fix Thaumcraft bucket dupe (close #64)
+
+# 1.7.10-1448.129: 3647ee3
+Fix #30
+
+# 1.7.10-1448.128: 3707569
+Add KCauldron version to crash report
+
+# 1.7.10-1448.127: 1a65a00
+Normilize repositories
+
+# 1.7.10-1448.126: 4ebda4d
+Fix #56
+
+# 1.7.10-1448.125: 9975437
+Fix updater
+
+# 1.7.10-1448.124: f27a931
+Build proper bundle
+
+# 1.7.10-1448.123: 01acbd4
+Deprecate installer & use KBootstrap for updating
+
+# 1.7.10-1448.122: 44020ec
+Support to restart server after update
+
+# 1.7.10-1448.121: 55d1d75
+Update to forge 1448, close #39
+
+# 1.7.10-1420.120: 995a11c
+Fix #35
+
+# 1.7.10-1420.119: 1353177
+Mute errors during update in quite mode
+
+# 1.7.10-1420.118: 474ef40
+Make bundle for publishing
+
+# 1.7.10-1420.117: 3363347
+Normalize patches
+
+# 1.7.10-1420.116: 75eb280
+Use concurent list of chunks in chunkproviderserver (fix #34)
+
+# 1.7.10-1420.115: 1fb3945
+Update to kimagine 0.1.12
+
+# 1.7.10-1420.114: 9095246
+Argh. Update kimagine to 0.1.11
+
+# 1.7.10-1420.113: 71d2f85
+Update to kimagine 0.1.10. finally
+
+# 1.7.10-1420.112: 30f5b27
+Aaaaand update kimagine to 0.1.9
+
+# 1.7.10-1420.111: e2bb0ef
+Update kimagine to 0.1.8+
+
+# 1.7.10-1420.110: ecbd546
+Use indirect collections in entitytracker
+
+# 1.7.10-1420.109: 596a7b9
+Additional checks during entity update
+
+# 1.7.10-1420.108: 3ec6f6a
+Additional checks to tracker
+
+# 1.7.10-1420.107: 7f699c1
+Fix #29
+
+# 1.7.10-1420.106: 9c2057b
+Change CraftServer branding to KCauldron
+
+# 1.7.10-1420.105: fafcc58
+Fix for backport updating
+
+# 1.7.10-1420.104: c755e7f
+Disable dumb material injection logging
+
+# 1.7.10-1420.103: 27d13cc
+Add support for updating backports correctly
+
+# 1.7.10-1420.102: 5a9c5f6
+Revert "Compile with Java 7, drop Java 6 support"
+
+This reverts commit 4811d6deab0b7fec9885b5f12380e43a678a7c31.
+
+# 1.7.10-1420.101: 0412852
+Change default downloads order [no deploy]
+
+# 1.7.10-1420.100: 4811d6d
+Compile with Java 7, drop Java 6 support
+
+# 1.7.10-1420.99: 86f83ac
+Fix rcon
+
+# 1.7.10-1420.98: 4b0afe6
+Attempt to avoid npe during handshake
+
+# 1.7.10-1420.97: 939bb4b
+Changelog generation

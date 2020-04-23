@@ -27,16 +27,16 @@
   </dependencies>
   <name>KImagine</name>
   <description>Bootstrap for install &amp; run minecraft servers</description>
-  <url>https://prok.pw/gitlab/Prototik/KBootstrap</url>
+  <url>https://github.com/MCImaginarium/KBootstrap</url>
   <scm>
-    <url>https://prok.pw/gitlab/Prototik/KBootstrap</url>
-    <connection>https://prok.pw/gitlab/Prototik/KBootstrap.git</connection>
-    <developerConnection>gitlab@prok.pw:Prototik/KBootstrap.git</developerConnection>
+    <url>https://github.com/MCImaginarium/KBootstrap</url>
+    <connection>https://github.com/MCImaginarium/KBootstrap.git</connection>
+    <developerConnection>https://github.com/MCImaginarium/KBootstrap.git</developerConnection>
   </scm>
   <licenses>
     <license>
       <name>MIT License</name>
-      <url>https://prok.pw/gitlab/Prototik/KBootstrap/raw/master/LICENCE</url>
+      <url>https://github.com/MCImaginarium/KBootstrap/raw/master/LICENCE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
